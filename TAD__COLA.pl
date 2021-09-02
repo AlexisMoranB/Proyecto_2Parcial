@@ -1,20 +1,25 @@
 my $cola;
 my $creada = 0;
 
-print "1.- Crear la cola.
+print "Menu:
+1.- Crear la cola.
 2.- Ingresar elementos (Encolar)
 3.- Sacar elemento (Desencolar)
 4.- Imprimir.
 5.- Peek de la cola.
-6.- Salir.\n";
+6.- Vaciar cola.
+7.- Eliminar cola.
+8.- Salir.\n";
 do{
 print "\nEscoga una opcion: ";
 chop ($opcion = <STDIN>);
-if ($opcion == 1){
+if ($opcion == 1){ #Crear cola
 	undef @cola;
 	$creada = 1;
-	print "La cola a sido creada! \n";
-} elsif ($opcion == 2){
+	print "-----------------------
+La cola a sido creada!
+-----------------------\n";
+} elsif ($opcion == 2){ #Encolar
 	if ($creada eq 1){
 		print "Ingrese dato a la cola: ";
 		my $dato = <>;
@@ -24,7 +29,7 @@ if ($opcion == 1){
 	}else {
 		print "No has creado la cola! \n";
 	}
-}elsif ($opcion == 3){
+}elsif ($opcion == 3){ #Desencolar
 	if ($creada eq 1){
 		print "Extraccion de la cola " , "[" , @cola[0], "] \n";
 		shift @cola;
@@ -35,7 +40,7 @@ if ($opcion == 1){
 	}else{
 		print "No has creado la cola! \n";
 	}
-}elsif ($opcion == 4){
+}elsif ($opcion == 4){ #imprimir
 	if ($creada eq 1){
 		print "Imprimiendo la cola.......\n";
 		chomp (@cola);
@@ -43,7 +48,7 @@ if ($opcion == 1){
 	}else{
 		print "No has creado la cola! \n";
 	}
-} elsif ($opcion == 5){
+} elsif ($opcion == 5){ #peek
 	if ($creada eq 1){
 		print "Peek a la cola: ", @cola[0], "\n";
 		if (@cola == 0){
@@ -52,7 +57,7 @@ if ($opcion == 1){
 	}else{
 		print "No has creado la cola! \n";
 	}
-} elsif ($opcion >= 7){
+} elsif ($opcion >= 9){
 	print "Incorrecto, Vuelva a intentarlo!\n"; 
 	print "1.- Crear la cola.
 2.- Ingresar elementos (Encolar)
@@ -68,7 +73,22 @@ if ($opcion == 1){
 4.- Imprimir.
 5.- Peek de la cola.
 6.- Salir.\n";
-}elsif ($opcion == 6){
+} elsif ($opcion == 6){ #Vaciar Cola
+	if ($creada eq 1){
+		undef @cola;
+		print "La cola ha sido vaciada!\n";
+	} else {
+		print "No has creado la cola! \n";
+	}	
+} elsif ($opcion == 7){ #Eliminar cola;
+	if ($creada eq 1){
+		undef @cola;
+		$creada = 0;
+		print "La cola ha sido eliminada!\n";
+	} else {
+		print "No has creado la cola! \n";
+	}
+}elsif ($opcion == 8){
 		print "Desea salir?
 1.- SI   2.- NO\n";
 chop ($salir = <STDIN>);
