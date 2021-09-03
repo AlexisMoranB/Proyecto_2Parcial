@@ -1,5 +1,6 @@
 @lista;
 my $creada = 0;
+#Mostrar Menu del programa
 print "Menu:
 1.- Crear Lista.
 2.- Agregar en cabecera.
@@ -9,15 +10,18 @@ print "Menu:
 6.- Imprimir.
 7.- Modificar.
 8.- Eliminar.
-9.- Salir.\n";
+9.- Eliminar lista.
+10.- Vaciar lista.
+11.- Salir.\n";
+
 do{
 print "\nEscoga una opcion: ";
 chop ($opcion = <STDIN>);
-if ($opcion == 1){
-	undef @lista;
+if ($opcion == 1){   #Crear lista
+	undef @lista; 
 	$creada = 1;
 	print "La lista ha sido creada con exito! \n";
-} elsif ($opcion == 2){
+} elsif ($opcion == 2){ #Agregar en cabecera.
 	if ($creada eq 1){
 		print "Agrege un valor: ";
 		$valor = <>;
@@ -26,7 +30,7 @@ if ($opcion == 1){
 	} else {
 		print "Lista no creada, vuelva a intentarlo! ";
 }
-} elsif ($opcion == 3){
+} elsif ($opcion == 3){ #Agregar en cima.
 	if ($creada eq 1){
 		print "Agrege un valor: ";
 		$valor = <>;
@@ -35,7 +39,7 @@ if ($opcion == 1){
 	} else {
 		print "Lista no creada, vuelva a intentarlo! ";
 	}
-} elsif ($opcion == 4){
+} elsif ($opcion == 4){ #Agregar antes de.
 	if ($creada eq 1){
 		print "Agrege valor: ";
 		$nuevo_valor = <>;
@@ -55,7 +59,7 @@ if ($opcion == 1){
 	} else {
 		print "Lista no creada, vuelva a intentarlo! ";
 	}
-} elsif ($opcion == 5){
+} elsif ($opcion == 5){    #Esta vacia?
 	if ($creada eq 1){
 	if (@lista){
 		print "\nNo esta vacio\n";
@@ -67,14 +71,14 @@ if ($opcion == 1){
 } else {
 	print "Lista no creada, vuelva a intentarlo! ";
 }
-} elsif ($opcion == 6){
+} elsif ($opcion == 6){ #Imprimir.
 	if ($creada eq 1){
 		chomp(@lista);
 		print "Los numeros agregados en la lista:" ,"[",join(",",@lista),"]\n";
 	} else {
 		 print "Lista no creada, vuelva a intentarlo! ";
 		 }
-} elsif ($opcion == 7){
+} elsif ($opcion == 7){ #Modificar
 	if ($creada eq 1){
 	       print "Ingrese valor: ";
                my $nuevo_valor = <>;
@@ -98,7 +102,7 @@ print "Con exito! \n";
 } else {
 	print "Lista no creada, vuelva a intentarlo! ";
 }
-} elsif ($opcion == 8){
+} elsif ($opcion == 8){ #Eliminar
 	if ($creada eq 1){
 		print "Ingrese valor a eliminar: ";
 		my $eliminar = <>;
@@ -117,7 +121,7 @@ print "Con exito! \n";
 	} else {
 		print "Lista no creada, vuelva a intentarlo! ";
 	}
-} elsif ($opcion >=10 ){
+} elsif ($opcion >=12 ){
 	print "Error! Vuelva a intentarlo \n";
 	print "Menu:
 1.- Crear Lista.
@@ -128,7 +132,9 @@ print "Con exito! \n";
 6.- Imprimir.
 7.- Modificar.
 8.- Eliminar.
-9.- Salir.\n";
+9.- Eliminar lista.
+10.- Vaciar lista.
+11.- Salir.\n";
 }elsif ($opcion ==0 ){
 	print "Error! Vuelva a intentarlo \n";
 	print "Menu:
@@ -140,8 +146,25 @@ print "Con exito! \n";
 6.- Imprimir.
 7.- Modificar.
 8.- Eliminar.
-9.- Salir.\n";
-} elsif ($opcion == 9){
+9.- Eliminar lista.
+10.- Vaciar lista.
+11.- Salir.\n";
+} elsif ($opcion == 9){   #Eliminar Lista.
+	 if ($creada eq 1){
+	 	undef @lista;
+	 	$creada = 0;
+	 	print "La lista ha sido eliminada! \n";
+	 } else{
+	 	print "Lista no creada, vuelva a intentarlo! ";
+	 }
+} elsif ($opcion == 10){ #Vaciar Lista.
+	if ($creada eq 1){
+		undef @lista;
+		print "La lista ha sido vaciada!\n";
+	} else {
+		print "Lista no creada, vuelva a intentarlo! ";
+	}
+} elsif ($opcion == 11){
 		print "Desea salir?:
 1.- SI  2.- NO"; 
 	print "\n";
